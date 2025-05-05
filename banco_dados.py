@@ -26,6 +26,30 @@ while True:
             print("Operação invalida")
 
     elif opcao == "2":
+        valor = float(input("Coloque o valor que deseja retirar: "))
+
+        excedeu_saldo = valor > saldo
+        excedeu_limite = valor > limite
+        excedeu_saques = numero_saques >= LIMITE_SAQUES
+
+        if excedeu_saldo:
+            print("Operação invalida")
+
+        elif excedeu_limite:
+            print("Operação invalida")
+
+        elif excedeu_saques:
+            print("Operação invalida")
+
+        elif valor > 0:
+            saldo -= valor
+            extrato += f"Saque: R$ {valor:.2f}\n"
+            numero_saques += 1
+
+        else:
+            print("Operação invalida")
+
+    elif opcao == "3":
         print("\n-------------- Extrato --------------")
         print("Não foram realizados movimentações bancarias" if not extrato else extrato)
         print(f"\nSaldo: R$ {saldo:.2f}")
@@ -35,4 +59,4 @@ while True:
         break
     
     else:
-        print("Operação invalida, selecione as opções certas.")
+        print("Operação invalida, selecione as opções já criadas.")
